@@ -1,0 +1,11 @@
+{
+  "name": "SHE-SHIELD AI",
+  "description": "AI-powered personal safety guardian for women featuring one-tap SOS alerts, live GPS sharing, nearby police discovery, safe journey tracking, and bilingual English/Telugu AI safety support.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

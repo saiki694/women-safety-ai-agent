@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: #060A17;
+    color: #F1F5F9;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Emergency SOS and Guardian Shield subtle GPU-composited animations */
+@keyframes sos-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.26);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.26);
+    opacity: 0;
+  }
+}
+
+@keyframes shield-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.animate-sos-ring {
+  animation: sos-ring 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-shield-breathe {
+  animation: shield-breathe 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sos-ring,
+  .animate-shield-breathe {
+    animation: none;
+  }
+}
+
+/* Leaflet map dark-navy styling refinements */
+.leaflet-container {
+  background: #0A1022;
+  font-family: var(--font-sans);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #10172E;
+  color: #F1F5F9;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.65);
+}
+
+.leaflet-control-attribution {
+  background: rgba(6, 10, 23, 0.78) !important;
+  color: #94A3B8 !important;
+  font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #A78BFA !important;
+}
+
+/* Safe area padding helper for mobile bottom nav */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
+}
